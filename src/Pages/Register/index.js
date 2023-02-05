@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Field, Form, Formik } from "formik";
 import { useAuthState, useAuthDispatch, registerUser } from '../../Context';
-import styles from './login.module.css';
+import styles from './register.module.css';
 import { basicSchemaRegister } from '../../Components/YupSchema';
 import CustomInput from '../../Components/CustomInput';
 
@@ -32,16 +32,15 @@ function Register(props) {
 					validationSchema={basicSchemaRegister}
 				>
 					{({ errors, touched, isSubmitting }) => (
-						<Form>
+						<Form className={styles.form}>							
+							<Field className={styles.formFeild} disabled={isSubmitting} placeholder='your name' component={CustomInput} name="username" type="text" />
+							{errors.username && touched.username ? <div className={styles.error}>{errors.username}</div> : null}
 							
-							<Field disabled={isSubmitting} placeholder='your name' component={CustomInput} name="username" type="text" />
-							{errors.username && touched.username ? <div>{errors.username}</div> : null}
+							<Field className={styles.formFeild} disabled={isSubmitting} placeholder='email' component={CustomInput} name="email" type="email" />
+							{errors.email && touched.email ? <div className={styles.error}>{errors.email}</div> : null}
 							
-							<Field disabled={isSubmitting} placeholder='email' component={CustomInput} name="email" type="email" />
-							{errors.email && touched.email ? <div>{errors.email}</div> : null}
-							
-							<Field disabled={isSubmitting} placeholder='password' component={CustomInput} type='password' name="password" />
-							{errors.password && touched.password ? (<div>{errors.password}</div>) : null}
+							<Field className={styles.formFeild} disabled={isSubmitting} placeholder='password' component={CustomInput} type='password' name="password" />
+							{errors.password && touched.password ? (<div className={styles.error}>{errors.password}</div>) : null}
 							
 							<button disabled={isSubmitting} type="submit">Submit</button>
 

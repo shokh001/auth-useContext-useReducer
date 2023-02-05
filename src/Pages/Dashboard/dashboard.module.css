@@ -1,6 +1,6 @@
 .logoutBtn {
-	height: '30px';
-	width: '100px';
+	padding: 12px 30px;
+	cursor: pointer;
 }
 
 .dashboardPage {

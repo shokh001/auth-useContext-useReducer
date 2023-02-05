@@ -2,6 +2,7 @@ import Login from '../Pages/Login';
 import Dashboard from '../Pages/Dashboard';
 import NotFound from '../Pages/NotFound';
 import Register from '../Pages/Register';
+import ForgetPassword from '../Pages/ForgetPassword';
 
 const routes = [
 	{
@@ -14,6 +15,11 @@ const routes = [
 		component: Register,
 		isPrivate: false,
 	},
+	// {
+	// 	path: '/forget-password',
+	// 	component: ForgetPassword,
+	// 	isPrivate: false,
+	// },
 	{
 		path: '/dashboard',
 		component: Dashboard,

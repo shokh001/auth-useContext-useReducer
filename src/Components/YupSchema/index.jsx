@@ -10,11 +10,19 @@ export const basicSchemaRegister = yup.object().shape({
     .string()
     .min(5)
     .matches(passwordRules, { message: "Please create a stronger password" })
+    .required("Required")
+});
+
+export const ResetSchema = yup.object().shape({
+  password: yup
+    .string()
+    .min(5)
+    .matches(passwordRules, { message: "Please create a stronger password" })
     .required("Required"),
-//   confirmPassword: yup
-//     .string()
-//     .oneOf([yup.ref("password"), null], "Passwords must match")
-//     .required("Required"),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref("password"), null], "Passwords must match")
+    .required("Required"),
 });
 
 export const basicSchemaLogin = yup.object().shape({
@@ -24,4 +32,8 @@ export const basicSchemaLogin = yup.object().shape({
     .min(5)
     .matches(passwordRules, { message: "Please create a stronger password" })
     .required("Required"),
+});
+
+export const ForgetSchema = yup.object().shape({
+  email: yup.string().email("Please enter a valid email").required("Required"),  
 });

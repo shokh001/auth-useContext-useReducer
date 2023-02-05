@@ -23,7 +23,7 @@ function Login(props) {
 
 	return (
 		<div className={styles.container}>
-			<div className={{ width: 200 }}>
+			<div className={styles.wrapper}>
 				<h1>Login Page</h1>
 				{errorMessage ? <p className={styles.error}>{String(errorMessage)}</p> : null}				
 				<Formik
@@ -32,16 +32,17 @@ function Login(props) {
 					validationSchema={basicSchemaLogin}
 				>
 					{({ errors, touched, isSubmitting }) => (
-						<Form>
-							<Field disabled={isSubmitting} placeholder='email' component={CustomInput} name="email" type="email" />
-							{errors.email && touched.email ? <div>{errors.email}</div> : null}
-							<Field disabled={isSubmitting} placeholder='password' component={CustomInput} type='password' name="password" />
-							{errors.password && touched.password ? (
-								<div>{errors.password}</div>
-							) : null}
+						<Form className={styles.form}>
+							<Field className={styles.formFeild} disabled={isSubmitting} placeholder='email' component={CustomInput} name="email" type="email" />
+							{errors.email && touched.email ? <div className={styles.error}>{errors.email}</div> : null}
+							
+							<Field className={styles.formFeild} disabled={isSubmitting} placeholder='password' component={CustomInput} type='password' name="password" />
+							{errors.password && touched.password ? (<div className={styles.error}>{errors.password}</div>) : null}
+							
 							<button disabled={isSubmitting} type="submit">Submit</button>
 
 							<NavLink to={'/register'}>Sign Up</NavLink>
+							{/* <NavLink to={'/forget-password'}>Forget password</NavLink> */}
 						</Form>
 					)}
 				</Formik>

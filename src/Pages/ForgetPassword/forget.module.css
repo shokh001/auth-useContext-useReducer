@@ -5,21 +5,23 @@
 	justify-content: center;
 	align-items: center;
 }
-.formContainer {
-	width: 200px;
-}
+
 .error {
 	font-size: 0.8rem;
 	color: #bb0000;
 }
 
-.loginForm {
+.form {
 	display: flex;
 	flex-direction: column;
+	width: 300px;
 }
 
-.loginFormItem {
-	display: flex;
-	flex-direction: column;
+.formFeild {
+	margin-top: 20px;
+}
+
+.form button {
 	margin-bottom: 10px;
+	margin-top: 20px;
 }
